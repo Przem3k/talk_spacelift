@@ -21,7 +21,7 @@ resource "github_repository" "my_repo" {
 }
 
 resource "github_repository" "repos" {
-  for_each = toset(var.repos)
+  for_each = tomap(var.repos)
   name        = each.value.name
   description = each.value.description
   visibility = "public"
